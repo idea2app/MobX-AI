@@ -1,8 +1,20 @@
-describe('Node.js and SWC test toolchain', () => {
-  it('runs in Node.js and transpiles TypeScript with SWC', () => {
-    const identity = <Value>(value: Value): Value => value;
+import assert from 'node:assert/strict';
+import test from 'node:test';
 
-    expect(process.versions.node).toBeDefined();
-    expect(identity('ready')).toBe('ready');
-  });
+function decorate(value: (this: Example) => string) {
+  return function (this: Example) {
+    return `decorated: ${value.call(this)}`;
+  };
+}
+
+class Example {
+  @decorate
+  message() {
+    return 'ready';
+  }
+}
+
+test('Node.js test runner executes TypeScript with Stage 3 decorators via SWC', () => {
+  assert.ok(process.versions.node);
+  assert.equal(new Example().message(), 'decorated: ready');
 });

@@ -4,7 +4,7 @@
 
 ## 开发环境
 
-需要 Node.js 22 或更高版本。仓库使用 PNPM 10 管理依赖和工作区，并使用 Jest 与 SWC 执行测试。
+需要 Node.js 22 或更高版本。仓库使用 PNPM 10 管理依赖和工作区，以 Node.js 内置 test runner 执行测试，并通过 SWC register 即时转换 TypeScript（包括 ECMAScript Stage 3 装饰器）。
 
 ```sh
 corepack enable
@@ -26,10 +26,9 @@ MobX-AI/
 ├── packages/
 │   ├── ai-sdk-mobx/     # SDK package scaffold
 │   └── ai-ui-react/     # React UI package scaffold
-├── test/                # Shared Jest tests, transformed by SWC
+├── test/                # Shared Node.js tests, transformed by SWC register
 ├── package.json
 ├── pnpm-workspace.yaml
-├── jest.config.cjs
 ├── .swcrc
 └── README.md
 ```
@@ -60,7 +59,7 @@ AI Elements 上游会持续演进，因此实现前及每次覆盖范围验收�
 
 ## 当前范围与后续验收
 
-目前已完成项目和包的最小初始化、PNPM workspace 配置，以及 Node.js + Jest + SWC 测试工具链。暂不包含 hooks 的业务逻辑移植或 AI Elements 界面组件实现。
+目前已完成项目和包的最小初始化、PNPM workspace 配置，以及 Node.js test runner + SWC register 测试工具链。暂不包含 hooks 的业务逻辑移植或 AI Elements 界面组件实现。
 
 后续实现至少按以下标准验收：
 
