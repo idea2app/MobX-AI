@@ -1,0 +1,14 @@
+{
+  "name": "mobx-ai",
+  "private": true,
+  "packageManager": "pnpm@10.34.9",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "SWCRC=true SWC_CONFIG_FILE=$PWD/.swcrc node --import @swc-node/register/esm-register --test test/*.test.ts"
+  },
+  "devDependencies": {
+    "@swc-node/register": "1.12.1"
+  }
+}
