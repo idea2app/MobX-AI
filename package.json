@@ -1,0 +1,17 @@
+{
+  "name": "mobx-ai",
+  "private": true,
+  "packageManager": "pnpm@10.34.9",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@swc/core": "1.16.22",
+    "@swc/jest": "0.2.39",
+    "jest": "30.5.2"
+  }
+}

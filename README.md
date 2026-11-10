@@ -1,25 +1,36 @@
 # MobX-AI
 
-基于 MobX 的 AI SDK 与 React 组件库。本仓库计划采用 PNPM 建立多包工作区，将 AI 交互状态管理与 AI 界面组件分层维护。
+基于 MobX 的 AI SDK 与 React 组件库。PNPM 多包工作区和 Node.js + SWC 测试工具链已搭建；当前阶段暂不移植业务逻辑或复刻界面组件。
 
-> 当前阶段仅调研并记录仓库设计，不包含可安装的工作区配置、运行时代码或组件实现。
+## 开发环境
 
-## 目标
+需要 Node.js 22 或更高版本。仓库使用 PNPM 10 管理依赖和工作区，并使用 Jest 与 SWC 执行测试。
+
+```sh
+corepack enable
+pnpm install
+pnpm test
+```
+
+## 目标包
 
 - **`ai-sdk-mobx`**：以 [`mobx-restful`](https://github.com/idea2app/MobX-RESTful) 为基础，迁移 Vercel AI SDK [`packages/react`](https://github.com/vercel/ai/tree/main/packages/react) 中的 React hook 业务逻辑，以 MobX Model 提供对应能力。
 - **`ai-ui-react`**：基于 `ai-sdk-mobx`、[`idea-react`](https://github.com/idea2app/Idea-React) 和 [`mobx-restful-table`](https://github.com/idea2app/MobX-RESTful-Table)，实现 [`shadcn/ui AI Elements`](https://ui.shadcn.com/docs/ai-elements) 文档中的全部组件与组合模式。
 
-## 目标工作区
+## 工作区结构
 
-计划使用 PNPM workspace 管理以下包：
+PNPM workspace 已初始化，包位于 `packages/` 下：
 
 ```text
 MobX-AI/
 ├── packages/
-│   ├── ai-sdk-mobx/
-│   └── ai-ui-react/
+│   ├── ai-sdk-mobx/     # SDK package scaffold
+│   └── ai-ui-react/     # React UI package scaffold
+├── test/                # Shared Jest tests, transformed by SWC
 ├── package.json
 ├── pnpm-workspace.yaml
+├── jest.config.cjs
+├── .swcrc
 └── README.md
 ```
 
@@ -47,13 +58,13 @@ MobX-AI/
 
 AI Elements 上游会持续演进，因此实现前及每次覆盖范围验收时都应核对文档目录；不能以旧版组件清单替代当前完整目录，也不能因某个组件未在示例应用中使用而跳过。
 
-## 开发与验收方向
+## 当前范围与后续验收
 
-工作区配置完成后，预期使用 PNPM 在仓库根目录安装依赖，并按包执行构建、检查和测试。具体命令应在实现对应配置与脚本时确定；本阶段不提供尚不可运行的命令。
+目前已完成项目和包的最小初始化、PNPM workspace 配置，以及 Node.js + Jest + SWC 测试工具链。暂不包含 hooks 的业务逻辑移植或 AI Elements 界面组件实现。
 
 后续实现至少按以下标准验收：
 
-1. PNPM 能识别两个包及其本地依赖关系。
+1. PNPM 能识别两个包及其本地依赖关系，且根目录测试命令正常运行。
 2. `ai-sdk-mobx` 覆盖上游 React 包的全部 hooks，并以对应的 `BaseModel`/`ListModel` 子类管理状态。
 3. `ai-ui-react` 覆盖验收时 AI Elements 文档中的全部组件及组合模式。
 4. 两个包各自的 API、依赖边界和使用示例均有文档，并有针对模型行为与组件交互的测试。
