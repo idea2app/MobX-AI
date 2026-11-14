@@ -1,14 +1,16 @@
 {
   "name": "mobx-ai",
   "private": true,
-  "packageManager": "pnpm@10.34.9",
+  "packageManager": "pnpm@11.28.12",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.13",
+    "pnpm": ">=11"
   },
   "scripts": {
-    "test": "SWCRC=true SWC_CONFIG_FILE=$PWD/.swcrc node --import @swc-node/register/esm-register --test test/*.test.ts"
+    "test": "cross-env SWCRC=true SWC_CONFIG_FILE=./.swcrc node --import @swc-node/register/esm-register --test packages/ai-sdk-mobx/test/*.test.ts packages/ai-ui-react/test/*.test.ts packages/ai-ui-react/test/*.test.tsx"
   },
   "devDependencies": {
-    "@swc-node/register": "1.12.1"
+    "@swc-node/register": "1.12.1",
+    "cross-env": "10.1.0"
   }
 }

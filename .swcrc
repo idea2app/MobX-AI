@@ -1,17 +1,17 @@
 {
   "$schema": "https://swc.rs/schema.json",
+  "module": {
+    "type": "es6"
+  },
   "jsc": {
     "parser": {
       "syntax": "typescript",
-      "tsx": true,
-      "decorators": true
+      "decorators": true,
+      "tsx": true
     },
     "target": "es2022",
     "transform": {
       "decoratorVersion": "2022-03"
     }
-  },
-  "module": {
-    "type": "es6"
   }
 }
