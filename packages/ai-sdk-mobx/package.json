@@ -13,19 +13,18 @@
     "url": "git+https://github.com/idea2app/MobX-AI.git",
     "directory": "packages/ai-sdk-mobx"
   },
+  "dependencies": {
+    "mobx": "^7.1.7",
+    "mobx-restful": "^2.1.5"
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "test": "cross-env SWCRC=true SWC_CONFIG_FILE=../../.swcrc node --import @swc-node/register/esm-register --test test/*.test.ts"
   },
-  "dependencies": {
-    "mobx-restful": "^2.1.5"
-  },
-  "peerDependencies": {
-    "mobx": ">=6.11"
-  },
   "devDependencies": {
-    "mobx": "7.1.0"
+    "@swc-node/register": "^1.12.1",
+    "cross-env": "^10.1.0"
   }
 }

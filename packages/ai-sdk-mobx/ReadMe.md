@@ -1,15 +1,11 @@
-# ai-sdk-mobx
+# AI SDK for MobX
 
-MobX models for AI SDK interactions, built on [`mobx-restful`][1].
+MobX models for AI SDK interactions, built on `mobx-restful`.
 
 This package is being prepared; its public model API is not available yet.
 
 ## Install
 
 ```sh
-npm install ai-sdk-mobx mobx
+npm install ai-sdk-mobx
 ```
-
-## References
-
-[1]: https://github.com/idea2app/MobX-RESTful

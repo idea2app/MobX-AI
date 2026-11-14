@@ -13,34 +13,31 @@
     "url": "git+https://github.com/idea2app/MobX-AI.git",
     "directory": "packages/ai-ui-react"
   },
+  "dependencies": {
+    "ai-sdk-mobx": "workspace:^",
+    "idea-react": "^2.3.5",
+    "mobx": "^7.1.7",
+    "mobx-i18n": "^0.7.9",
+    "mobx-react": "^10.0.4",
+    "mobx-restful-table": "^2.7.8",
+    "react-element-to-jsx-string": "^18.0.0"
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "test": "cross-env SWCRC=true SWC_CONFIG_FILE=../../.swcrc node --import @swc-node/register/esm-register --test test/*.test.ts test/*.test.tsx"
-  },
-  "dependencies": {
-    "ai-sdk-mobx": "workspace:^*",
-    "idea-react": "^2.3.5",
-    "mobx-restful-table": "^2.7.8"
+    "test": "cross-env SWCRC=true SWC_CONFIG_FILE=../../.swcrc node --import @swc-node/register/esm-register --import global-jsdom/register --test test/*.test.ts test/*.test.tsx"
   },
   "peerDependencies": {
-    "mobx": ">=6.11",
-    "mobx-i18n": ">=0.6",
-    "mobx-react": ">=9",
-    "react": ">=18",
-    "react-dom": ">=18",
-    "react-element-to-jsx-string": ">=15"
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
-    "@testing-library/dom": "10.4.1",
-    "@testing-library/react": "16.3.3",
-    "jsdom": "27.2.0",
-    "mobx": "7.1.0",
-    "mobx-i18n": "0.7.9",
-    "mobx-react": "10.0.2",
-    "react": "19.3.1",
-    "react-dom": "19.3.1",
-    "react-element-to-jsx-string": "18.0.0"
+    "@swc-node/register": "^1.12.1",
+    "@testing-library/react": "^16.3.3",
+    "cross-env": "^10.1.0",
+    "global-jsdom": "^31.0.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   }
 }
