@@ -1,8 +1,9 @@
 {
   "name": "ai-ui-react",
   "version": "0.1.0",
-  "description": "React components for AI applications built with MobX.",
   "license": "AGPL-3.0-only",
+  "author": "shiy2008@gmail.com",
+  "description": "React components for AI applications built with MobX.",
   "files": [
     "ReadMe.md",
     "source/",
@@ -22,12 +23,6 @@
     "mobx-restful-table": "^2.7.8",
     "react-element-to-jsx-string": "^18.0.0"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "test": "cross-env SWCRC=true SWC_CONFIG_FILE=../../.swcrc node --import @swc-node/register/esm-register --import global-jsdom/register --test test/*.test.ts test/*.test.tsx"
-  },
   "peerDependencies": {
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
@@ -35,9 +30,18 @@
   "devDependencies": {
     "@swc-node/register": "^1.12.1",
     "@testing-library/react": "^16.3.3",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "cross-env": "^10.1.0",
     "global-jsdom": "^31.0.0",
     "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "typescript": "^6.0.3"
+  },
+  "scripts": {
+    "check": "cross-env SWCRC=true SWC_CONFIG_FILE=../../.swcrc node --import @swc-node/register/esm-register --import global-jsdom/register --test test/*.test.ts test/*.test.tsx",
+    "test": "tsc --noEmit  &&  npm run check",
+    "build": "echo Building ai-ui-react"
   }
 }

@@ -2,26 +2,24 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { BaseModel } from 'mobx-restful';
 
-class TestModel extends BaseModel {}
-
-function decorate(value: (this: Example) => string) {
-  return function (this: Example) {
-    return `decorated: ${value.call(this)}`;
-  };
-}
-
-class Example {
-  @decorate
-  message() {
-    return 'ready';
-  }
-}
-
 test('Node.js test runner executes TypeScript with Stage 3 decorators via SWC', () => {
+  const decorate = (value: (this: Example) => string) =>
+    function (this: Example) {
+      return `decorated: ${value.call(this)}`;
+    };
+
+  class Example {
+    @decorate
+    message() {
+      return 'ready';
+    }
+  }
   assert.equal(new Example().message(), 'decorated: ready');
 });
 
 test('mobx-restful BaseModel resets request state', () => {
+  class TestModel extends BaseModel {}
+
   const model = new TestModel();
 
   model.downloading = 1;

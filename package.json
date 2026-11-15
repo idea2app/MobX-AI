@@ -4,5 +4,22 @@
   "engines": {
     "node": ">=22",
     "pnpm": ">=11"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "prettier": "^3.10.1"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "printWidth": 100
+  },
+  "lint-staged": {
+    "*.{md,json,js,ts,tsx}": "prettier --write"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "test": "lint-staged  &&  pnpm -r test"
   }
 }

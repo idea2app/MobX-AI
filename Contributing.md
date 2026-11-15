@@ -9,7 +9,7 @@ Install dependencies from the workspace root and run each package's tests:
 
 ```sh
 pnpm install
-pnpm -r test
+npm test
 ```
 
 Each package owns its test script and test tooling. The scripts use Node.js's built-in test runner with `@swc-node/register` and the root `.swcrc`, which enables ECMAScript Stage 3 decorators and automatic JSX runtime.

@@ -4,12 +4,12 @@
     "type": "es6"
   },
   "jsc": {
+    "target": "es2022",
     "parser": {
       "syntax": "typescript",
       "decorators": true,
       "tsx": true
     },
-    "target": "es2022",
     "transform": {
       "decoratorVersion": "2022-03",
       "react": {

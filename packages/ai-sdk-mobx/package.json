@@ -1,30 +1,32 @@
 {
   "name": "ai-sdk-mobx",
   "version": "0.1.0",
-  "description": "MobX models for AI SDK interactions.",
   "license": "AGPL-3.0-only",
-  "files": [
-    "ReadMe.md",
-    "source/",
-    "dist/"
-  ],
+  "author": "shiy2008@gmail.com",
+  "description": "MobX models for AI SDK interactions.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/idea2app/MobX-AI.git",
     "directory": "packages/ai-sdk-mobx"
   },
+  "files": [
+    "ReadMe.md",
+    "source/",
+    "dist/"
+  ],
   "dependencies": {
     "mobx": "^7.1.7",
     "mobx-restful": "^2.1.5"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "test": "cross-env SWCRC=true SWC_CONFIG_FILE=../../.swcrc node --import @swc-node/register/esm-register --test test/*.test.ts"
-  },
   "devDependencies": {
     "@swc-node/register": "^1.12.1",
-    "cross-env": "^10.1.0"
+    "@types/node": "^26.6.6",
+    "cross-env": "^10.1.0",
+    "typescript": "^6.0.3"
+  },
+  "scripts": {
+    "check": "cross-env SWCRC=true SWC_CONFIG_FILE=../../.swcrc  node --import @swc-node/register/esm-register --test test/*.test.ts",
+    "test": "tsc --noEmit  &&  npm run check",
+    "build": "echo Building ai-sdk-mobx"
   }
 }
