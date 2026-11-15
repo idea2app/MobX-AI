@@ -78,7 +78,10 @@ test('ObjectModel parses and validates streamed JSON', async () => {
     {
       validate: value =>
         value != null && typeof value === 'object' && 'name' in value
-          ? { success: true, value: value as { name: string } }
+          ? {
+              success: true,
+              value: { name: String(value.name).toUpperCase() },
+            }
           : { success: false, error: new Error('Invalid object') },
     },
   );
@@ -90,9 +93,27 @@ test('ObjectModel parses and validates streamed JSON', async () => {
 
   await model.submit({ prompt: 'name' });
 
-  assert.deepEqual(model.object, { name: 'Ada' });
+  assert.deepEqual(model.object, { name: 'ADA' });
   assert.equal(model.isLoading, false);
   assert.equal(model.error, undefined);
+});
+
+test('ObjectModel exposes schema validation errors', async () => {
+  const model = new ObjectModel({
+    api: '/object',
+    schema: jsonSchema<{ name: string }>(
+      { type: 'object' },
+      {
+        validate: () => ({ success: false, error: new Error('Invalid object') }),
+      },
+    ),
+    fetch: async () => new Response('{"name":"Ada"}'),
+  });
+
+  await model.submit({ prompt: 'name' });
+
+  assert.deepEqual(model.object, { name: 'Ada' });
+  assert.equal(model.error?.message, 'Invalid object');
 });
 
 test('RealtimeModel exposes observable realtime hook state', () => {

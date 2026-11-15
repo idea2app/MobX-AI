@@ -82,6 +82,15 @@ export class ObjectModel<
           },
           close: async () => {
             const validation = await asSchema(this.options.schema).validate?.(latestObject);
+            if (validation?.success) {
+              runInAction(() => {
+                this.object = validation.value as DeepPartial<RESULT>;
+              });
+            } else if (validation != null) {
+              runInAction(() => {
+                this.error = validation.error;
+              });
+            }
             await this.options.onFinish?.(
               validation == null
                 ? {
