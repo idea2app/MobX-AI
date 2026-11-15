@@ -20,16 +20,22 @@ importers:
 
   packages/ai-sdk-mobx:
     dependencies:
+      ai:
+        specifier: ^7.0.173
+        version: 7.0.173(zod@4.6.7)
       mobx:
         specifier: ^7.1.7
         version: 7.1.7
       mobx-restful:
         specifier: ^2.1.5
-        version: 2.1.5(core-js@3.51.0)(element-internals-polyfill@3.0.2)(jsdom@31.0.1)(mobx@7.1.7)(typescript@6.0.3)
+        version: 2.1.5(mobx@7.1.7)(typescript@6.0.3)
+      zod:
+        specifier: ^4.6.7
+        version: 4.6.7
     devDependencies:
       '@swc-node/register':
         specifier: ^1.12.1
-        version: 1.12.1(@swc/core@1.16.22(@swc/helpers@0.5.24))(@swc/types@0.1.28)(typescript@6.0.3)
+        version: 1.12.1(typescript@6.0.3)
       '@types/node':
         specifier: ^26.6.6
         version: 26.6.6
@@ -96,6 +102,22 @@ importers:
         version: 6.0.3
 
 packages:
+
+  '@ai-sdk/gateway@4.0.146':
+    resolution: {integrity: sha512-rJ5NQSyjnpo6HSBEYc9Ff6k1EROUuB7KeAfHYVbVDsk68ynY0Eb8JeWflZKXlT6NhYgqyCiBDxE5blXWACXMKQ==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
+
+  '@ai-sdk/provider-utils@5.0.81':
+    resolution: {integrity: sha512-pfvvdQ3d1WxdBuug/mnGEP6E48cPokwD8dMBnsFeeAUp0/rb/H2aj0f3mwOiY62gu/Cu5GO44e+SE5nDHyBWMA==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
+
+  '@ai-sdk/provider@4.0.38':
+    resolution: {integrity: sha512-GElz70UUCuDFFyD6m6aQJFgRY0HEABQzB5otzgkrisYaF5mnss7o0upAmbBTSD6KWiM9h7lZm1ls2c7xzHR8CA==}
+    engines: {node: '>=22'}
 
   '@babel/code-frame@7.29.7':
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
@@ -454,6 +476,9 @@ packages:
   '@shikijs/vscode-textmate@10.1.0':
     resolution: {integrity: sha512-cVBuhDQjBZaNMTwBquYfPydrUP+E3hE6oYGasx8h6ZrODIM7/r+gxLDXdd66oszbrggZHEntdE6j+5gYIVyMWQ==}
 
+  '@standard-schema/spec@1.1.0':
+    resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
+
   '@swc-node/core@1.15.0':
     resolution: {integrity: sha512-WAerrrl087WgenB92XG4Th2t0NQFfMNLYSe0sW2cEMMqM/LQmP4rozsDJl0vuzTrbewjpKQryxFXI+aYig/dBg==}
     engines: {node: '>= 10'}
@@ -634,6 +659,19 @@ packages:
   '@ungap/structured-clone@1.4.0':
     resolution: {integrity: sha512-1mEZtMKPM09vDmQt5y7YvmN2+DFTP7Tg0EWXdic8/C6VRnpb33e4ghisCIE3WZjsE2N8mf+QV1Zqh7ZFYLWInQ==}
 
+  '@vercel/oidc@3.2.0':
+    resolution: {integrity: sha512-UycprH3T6n3jH0k44NHMa7pnFHGu/N05MjojYr+Mc6I7obkoLIJujSWwin1pCvdy/eOxrI/l3uDLQsmcrOb4ug==}
+    engines: {node: '>= 20'}
+
+  '@workflow/serde@4.1.0':
+    resolution: {integrity: sha512-pav4F2BoirECWR7Nf1TKt+2eETcBj7jj4cBefQ8VXQCA6NPkaKeLfj/zMgi+3zYV5ZIBT4GuUiphsj0/b9hPQQ==}
+
+  ai@7.0.173:
+    resolution: {integrity: sha512-dLea37zT1h7cjkUsBprU4Rq35HJqhtHHaq1jTAXjHQoyfpeswpgCrhjZJWdWc10gjEAxmz114py7iLGQ3xIMxw==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
+
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
@@ -762,6 +800,10 @@ packages:
     resolution: {integrity: sha512-oJFNDJg3kTPwAD1cNn2+WmUq4wFoo09npc3Ydf1D7ED4smRiWrsKnaLxykrTWgyGEcusc87P5dxlAleol9kpkg==}
     engines: {node: '>=20.19.0'}
 
+  eventsource-parser@3.1.1:
+    resolution: {integrity: sha512-EKN1vKAMcZ8MlYMpaNuxN6R9yakzH6uajHcHVTqWJzvu5pWw9DyhbP35HH8MVBQ+dZjAfDxk+A8NiR9KWaXiyQ==}
+    engines: {node: '>=18.0.0'}
+
   fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
 
@@ -850,6 +892,9 @@ packages:
     peerDependenciesMeta:
       '@napi-rs/canvas':
         optional: true
+
+  json-schema@0.4.0:
+    resolution: {integrity: sha512-es94M3nTIfsEPisRafak+HDLfHXnKBhV3vU5eqPcS3flIWqcxJWgXHXiey3YrpaNsanY5ei1VoYEbOzijuq9BA==}
 
   koajax@3.3.1:
     resolution: {integrity: sha512-rVkV3KmFJXDZ1O0OK//bRjhMVNxfwbZMI+0LZBGpj1jY0fsLOsUATtuBedDbaeU7GDMB5V2dNYqDaIhBKeeHpA==}
@@ -1301,10 +1346,32 @@ packages:
     engines: {node: '>= 14.6'}
     hasBin: true
 
+  zod@4.6.7:
+    resolution: {integrity: sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
+
+  '@ai-sdk/gateway@4.0.146(zod@4.6.7)':
+    dependencies:
+      '@ai-sdk/provider': 4.0.38
+      '@ai-sdk/provider-utils': 5.0.81(zod@4.6.7)
+      '@vercel/oidc': 3.2.0
+      zod: 4.6.7
+
+  '@ai-sdk/provider-utils@5.0.81(zod@4.6.7)':
+    dependencies:
+      '@ai-sdk/provider': 4.0.38
+      '@standard-schema/spec': 1.1.0
+      '@workflow/serde': 4.1.0
+      eventsource-parser: 3.1.1
+      zod: 4.6.7
+
+  '@ai-sdk/provider@4.0.38':
+    dependencies:
+      json-schema: 0.4.0
 
   '@babel/code-frame@7.29.7':
     dependencies:
@@ -1609,6 +1676,10 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.1.0': {}
 
+  '@standard-schema/spec@1.1.0': {}
+
+  '@swc-node/core@1.15.0': {}
+
   '@swc-node/core@1.15.0(@swc/core@1.16.22(@swc/helpers@0.5.24))(@swc/types@0.1.28)':
     dependencies:
       '@swc/core': 1.16.22(@swc/helpers@0.5.24)
@@ -1620,6 +1691,22 @@ snapshots:
       '@swc-node/core': 1.15.0(@swc/core@1.16.22(@swc/helpers@0.5.24))(@swc/types@0.1.28)
       '@swc-node/sourcemap-support': 0.6.1
       '@swc/core': 1.16.22(@swc/helpers@0.5.24)
+      colorette: 2.0.20
+      debug: 4.4.3
+      fast-json-stable-stringify: 2.1.0
+      oxc-resolver: 11.24.2
+      pirates: 4.0.7
+      tslib: 2.9.1
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - '@swc/types'
+      - supports-color
+
+  '@swc-node/register@1.12.1(typescript@6.0.3)':
+    dependencies:
+      '@node-rs/xxhash': 1.7.8
+      '@swc-node/core': 1.15.0
+      '@swc-node/sourcemap-support': 0.6.1
       colorette: 2.0.20
       debug: 4.4.3
       fast-json-stable-stringify: 2.1.0
@@ -1767,6 +1854,17 @@ snapshots:
 
   '@ungap/structured-clone@1.4.0': {}
 
+  '@vercel/oidc@3.2.0': {}
+
+  '@workflow/serde@4.1.0': {}
+
+  ai@7.0.173(zod@4.6.7):
+    dependencies:
+      '@ai-sdk/gateway': 4.0.146(zod@4.6.7)
+      '@ai-sdk/provider': 4.0.38
+      '@ai-sdk/provider-utils': 5.0.81(zod@4.6.7)
+      zod: 4.6.7
+
   ansi-regex@5.0.1: {}
 
   ansi-styles@5.2.0: {}
@@ -1879,6 +1977,8 @@ snapshots:
   element-internals-polyfill@3.0.2: {}
 
   entities@9.0.0: {}
+
+  eventsource-parser@3.1.1: {}
 
   fast-json-stable-stringify@2.1.0: {}
 
@@ -2002,6 +2102,8 @@ snapshots:
     transitivePeerDependencies:
       - '@noble/hashes'
 
+  json-schema@0.4.0: {}
+
   koajax@3.3.1(core-js@3.51.0)(element-internals-polyfill@3.0.2)(jsdom@31.0.1)(typescript@6.0.3):
     dependencies:
       '@swc/helpers': 0.5.24
@@ -2010,6 +2112,16 @@ snapshots:
       regenerator-runtime: 0.14.1
       web-streams-polyfill: 4.5.1
       web-utility: 4.8.1(element-internals-polyfill@3.0.2)(typescript@6.0.3)
+    transitivePeerDependencies:
+      - element-internals-polyfill
+      - typescript
+
+  koajax@3.3.1(typescript@6.0.3):
+    dependencies:
+      '@swc/helpers': 0.5.24
+      regenerator-runtime: 0.14.1
+      web-streams-polyfill: 4.5.1
+      web-utility: 4.8.1(typescript@6.0.3)
     transitivePeerDependencies:
       - element-internals-polyfill
       - typescript
@@ -2134,6 +2246,20 @@ snapshots:
       mobx: 7.1.7
       regenerator-runtime: 0.14.1
       web-utility: 4.8.1(element-internals-polyfill@3.0.2)(typescript@6.0.3)
+    transitivePeerDependencies:
+      - core-js
+      - element-internals-polyfill
+      - jsdom
+      - typescript
+
+  mobx-restful@2.1.5(mobx@7.1.7)(typescript@6.0.3):
+    dependencies:
+      '@swc/helpers': 0.5.24
+      idb-keyval: 6.3.0
+      koajax: 3.3.1(typescript@6.0.3)
+      mobx: 7.1.7
+      regenerator-runtime: 0.14.1
+      web-utility: 4.8.1(typescript@6.0.3)
     transitivePeerDependencies:
       - core-js
       - element-internals-polyfill
@@ -2526,6 +2652,13 @@ snapshots:
       regenerator-runtime: 0.14.1
       typescript: 6.0.3
 
+  web-utility@4.8.1(typescript@6.0.3):
+    dependencies:
+      '@swc/helpers': 0.5.24
+      mime: 4.1.2
+      regenerator-runtime: 0.14.1
+      typescript: 6.0.3
+
   webidl-conversions@8.0.1: {}
 
   whatwg-mimetype@5.0.0: {}
@@ -2548,5 +2681,7 @@ snapshots:
 
   yaml@2.9.1:
     optional: true
+
+  zod@4.6.7: {}
 
   zwitch@2.0.4: {}

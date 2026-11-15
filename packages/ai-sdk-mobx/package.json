@@ -1,6 +1,15 @@
 {
   "name": "ai-sdk-mobx",
   "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "license": "AGPL-3.0-only",
   "author": "shiy2008@gmail.com",
   "description": "MobX models for AI SDK interactions.",
@@ -15,8 +24,10 @@
     "dist/"
   ],
   "dependencies": {
+    "ai": "^7.0.173",
     "mobx": "^7.1.7",
-    "mobx-restful": "^2.1.5"
+    "mobx-restful": "^2.1.5",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@swc-node/register": "^1.12.1",
@@ -27,6 +38,6 @@
   "scripts": {
     "check": "cross-env SWCRC=true SWC_CONFIG_FILE=../../.swcrc  node --import @swc-node/register/esm-register --test test/*.test.ts",
     "test": "tsc --noEmit  &&  npm run check",
-    "build": "echo Building ai-sdk-mobx"
+    "build": "tsc --project tsconfig.build.json"
   }
 }
