@@ -1,0 +1,20 @@
+{
+  "$schema": "https://swc.rs/schema.json",
+  "module": {
+    "type": "es6"
+  },
+  "jsc": {
+    "target": "es2022",
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true,
+      "tsx": true
+    },
+    "transform": {
+      "decoratorVersion": "2022-03",
+      "react": {
+        "runtime": "automatic"
+      }
+    }
+  }
+}

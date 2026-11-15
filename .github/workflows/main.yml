@@ -1,0 +1,32 @@
+name: Test & Publish
+on:
+  push:
+    tags:
+      - v*
+env:
+  PUBLISH_TAG: ${{ contains(github.ref_name, '-') && 'next' || 'latest' }}
+
+jobs:
+  Test-Build-Publish-Deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 12
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 26
+          registry-url: https://registry.npmjs.org
+          cache: pnpm
+      - name: Install Dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Build & Publish
+        run: pnpm -r publish --access public --provenance --tag ${{ env.PUBLISH_TAG }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
